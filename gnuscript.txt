@@ -1,0 +1,11 @@
+set datafile separator ","
+set ylabel "Error Percent"
+set xlabel "Training Percent"
+set title "CSC1003 Naives Bayes Error Plot"
+set grid
+plot "training.txt" title "Training Dataset" smooth csplines lc rgb 'red' lw 2,\
+'' title "Training Plots" pt 7 ps 2 lc rgb 'red',\
+'' using 1:2:(sprintf("(%d,%.1f)",$1,$2)) with labels offset char 1,1 notitle,\
+"testing.txt" title "Testing Dataset" smooth csplines lc rgb 'blue' lw 2,\
+'' title "Testing Plots" pt 7 ps 2 lc rgb 'blue',\
+'' using 1:2:(sprintf("(%d,%.1f)",$1,$2)) with labels offset char 1,1 notitle
